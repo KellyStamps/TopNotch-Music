@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
     end
 
     def current_user
-      @current_user ||= User.find_by(id: token_user_id)
+      !!@current_user ||= User.find_by(id: token_user_id)
     end
 
     def token_user_id

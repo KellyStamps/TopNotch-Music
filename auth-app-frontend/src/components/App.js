@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginForm from './LoginForm';
 import AlbumsContainer from './AlbumsContainer';
-
 import AuthAdapter from '../api/AuthAdapter'
 
 class App extends Component {
   
+  state = {
+    user: false
+  }
   
   handleLogin = (event) => {
     event.preventDefault();
@@ -15,8 +17,8 @@ class App extends Component {
     AuthAdapter.login({"username": userName, "password": passWord})
     .then(user => {
         if (!user.error) {
-          localStorage.setItem('jwt', user.jwt)
-
+          localStorage.setItem('jwt', user.jwt),
+          this.setState({user: true})
         } else {
           console.log({ error: user.error})
         }
@@ -24,11 +26,11 @@ class App extends Component {
   }
   
   render() {
+    console.log(this.state.user)
     return (
       <div className="App">
         <h1>Welcome to the Music App</h1>
-        <LoginForm handleLogin={this.handleLogin}/>
-        <AlbumsContainer />
+        {this.state.user ? <div><h1>Welcome!</h1><AlbumsContainer /></div> : <LoginForm handleLogin={this.handleLogin}/>}
       </div>
     );
   }

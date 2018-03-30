@@ -1,11 +1,8 @@
 class Api::V1::ArtistsController < ApplicationController
 
-  def create
-    byebug
-  end
-
   def index
-
+    @artists = Artist.all
+    render json: {@artists}
   end
 
 end

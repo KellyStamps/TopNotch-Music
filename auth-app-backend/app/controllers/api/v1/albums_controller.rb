@@ -1,9 +1,10 @@
 class Api::V1::AlbumsController < ApplicationController
-  # before_action :authenticate_user
+  before_action :current_user
 
   def index
     albums = Album.all
-    render json: {albums: albums}
+    artists = Artist.all
+    render json: {albums: albums, artists: artists}
   end
 
 end
