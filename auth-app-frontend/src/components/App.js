@@ -19,20 +19,15 @@ class App extends Component {
   
   handleLogin = (event) => {
     event.preventDefault();
-    let userName = event.target.username.value
-    let passWord = event.target.password.value
+    let body = {username: event.target.username.value, password: event.target.password.value}
 
     fetch(`http://localhost:3000/api/v1/auth`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('jwt')
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        username: userName,
-        password: passWord
-      })
+      body: JSON.stringify(body)
     })
     .then(res => res.json())
     .then(user => {
