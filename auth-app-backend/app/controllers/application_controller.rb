@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   private
 
     def issue_token payload
-      JWT.encode(payload, secret, algorithm)
+      JWT.encode(payload, Rails.application.secrets.secret_key_base, "HS256")
     end
 
     def authorize_user!
@@ -13,35 +13,23 @@ class ApplicationController < ActionController::API
     end
 
     def current_user
-      !!@current_user ||= User.find_by(id: token_user_id)
+      !!@current_user ||= User.find_by(id: decoded_token.first['id'])
     end
 
-    def token_user_id
-      decoded_token.first['id']
+    def find_current_user
+      @current_user ||= User.find_by(id: decoded_token.first['id'])
     end
 
     def decoded_token
-      if token
+      if request.headers['Authorization']
         begin
-          JWT.decode(token, secret, true, {algorithm: algorithm})
+          JWT.decode(request.headers['Authorization'], Rails.application.secrets.secret_key_base, true, {algorithm: "HS256"})
         rescue JWT::DecodeError
           return [{}]
         end
       else
         [{}]
       end
-    end
-
-    def token
-      request.headers['Authorization']
-    end
-
-    def secret
-      Rails.application.secrets.secret_key_base
-    end
-
-    def algorithm
-      "HS256"
     end
 
 end

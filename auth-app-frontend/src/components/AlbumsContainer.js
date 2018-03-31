@@ -19,7 +19,6 @@ class AlbumsContainer extends React.Component {
   }
   
   handleArtistClick = (event) => {
-    console.log(event)
     this.setState({showing: "albums"})
   }
   
@@ -27,7 +26,7 @@ class AlbumsContainer extends React.Component {
     return (
       <div>
         <div id="smaller-container">
-          {this.state.showing === "albums"? this.state.albums.map(al => <AlbumCard album={al}/>) : this.state.artists.map(ar => <ArtistCard artist={ar} handleClick={this.handleArtistClick}/>)}
+        {this.state.showing === "albums"? this.state.albums.map(al => <AlbumCard album={al} key={al.id}/>) : this.state.artists.map(ar => <ArtistCard artist={ar} key={ar.id} handleClick={this.handleArtistClick}/>)}
         </div>
       </div>
     )

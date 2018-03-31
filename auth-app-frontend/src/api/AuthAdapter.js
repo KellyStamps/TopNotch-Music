@@ -3,7 +3,7 @@ const baseUrl = 'http://localhost:3000/api/v1'
 class AuthAdapter {
 
   static login(loginParams) {
-    return fetch(`${baseUrl}/auth`, {
+    return fetch(`http://localhost:3000/api/v1/auth`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

@@ -10,14 +10,34 @@ class App extends Component {
     user: false
   }
   
+  //Check to see if there is a token in local storage, meaning someone is still logged in 
+  componentDidMount(){
+    if (localStorage.getItem('jwt') !== null) {
+      this.setState({user: true})
+    }
+  }
+  
   handleLogin = (event) => {
     event.preventDefault();
     let userName = event.target.username.value
     let passWord = event.target.password.value
-    AuthAdapter.login({"username": userName, "password": passWord})
+
+    fetch(`http://localhost:3000/api/v1/auth`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('jwt')
+      },
+      body: JSON.stringify({
+        username: userName,
+        password: passWord
+      })
+    })
+    .then(res => res.json())
     .then(user => {
         if (!user.error) {
-          localStorage.setItem('jwt', user.jwt),
+          localStorage.setItem('jwt', user.jwt)
           this.setState({user: true})
         } else {
           console.log({ error: user.error})
@@ -26,11 +46,10 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state.user)
     return (
       <div className="App">
         <h1>Welcome to the Music App</h1>
-        {this.state.user ? <div><h1>Welcome!</h1><AlbumsContainer /></div> : <LoginForm handleLogin={this.handleLogin}/>}
+        {this.state.user ? <div><AlbumsContainer /></div> : <LoginForm handleLogin={this.handleLogin}/>}
       </div>
     );
   }

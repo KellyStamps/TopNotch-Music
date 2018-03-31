@@ -1,10 +1,10 @@
 class Api::V1::AuthController < ApplicationController
   before_action :authorize_user!, only: [:show]
-#comment
+
   def show
     render json: {
-      id: current_user.id,
-      username: current_user.username
+      id: find_current_user.id,
+      username: find_current_user.username
     }
   end
 

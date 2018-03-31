@@ -1,13 +1,19 @@
-.App {
-  text-align: center;
-}
-
 html, body {
   background: linear-gradient(orange, yellow);
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin: 0;
   height: 100%;
+  font-family: 'Abel';
+}
+
+.App {
+  text-align: center;
+  padding: 10px;
+}
+
+.App > h1 {
+  font-family: "Barrio";
 }
 
 #smaller-container {

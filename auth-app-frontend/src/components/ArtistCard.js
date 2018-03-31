@@ -7,7 +7,7 @@ class ArtistCard extends React.Component {
   render () {
     return (
       <div onClick={this.clickHelper}>
-        <h4 >{this.props.artist.name}</h4>
+        <h3>{this.props.artist.name.toUpperCase()}</h3>
       </div>
     )
   } 
