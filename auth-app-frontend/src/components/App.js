@@ -4,6 +4,8 @@ import LoginForm from './LoginForm';
 import AlbumsContainer from './AlbumsContainer';
 import SearchBar from './SearchBar'
 import AuthAdapter from '../api/AuthAdapter'
+import {connect} from 'react-redux'
+import {addUser} from '../actions/users'
 
 class App extends Component {
 
@@ -22,17 +24,9 @@ class App extends Component {
     event.preventDefault();
     let body = {username: event.target.username.value, password: event.target.password.value}
 
-    fetch(`http://localhost:3000/api/v1/auth`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    })
-    .then(res => res.json())
-    .then(user => {
+    AuthAdapter.login(body).then(user => {
         if (!user.error) {
+          this.props.addUser({username: user.username, id: user.id})
           localStorage.setItem('jwt', user.jwt)
           this.setState({user: true})
         } else {
@@ -42,6 +36,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.user)
     return (
       <div className="App">
         <h1>Welcome to the Music App</h1>
@@ -51,4 +46,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {...state.user}
+}
+
+export default connect(mapStateToProps, {addUser})(App);
