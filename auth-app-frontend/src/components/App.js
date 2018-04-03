@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginForm from './LoginForm';
 import AlbumsContainer from './AlbumsContainer';
+import SearchBar from './SearchBar'
 import AuthAdapter from '../api/AuthAdapter'
 
 class App extends Component {
-  
+
   state = {
     user: false
   }
-  
-  //Check to see if there is a token in local storage, meaning someone is still logged in 
+
+  //Check to see if there is a token in local storage, meaning someone is still logged in
   componentDidMount(){
     if (localStorage.getItem('jwt') !== null) {
       this.setState({user: true})
     }
   }
-  
+
   handleLogin = (event) => {
     event.preventDefault();
     let body = {username: event.target.username.value, password: event.target.password.value}
@@ -39,12 +40,12 @@ class App extends Component {
         }
       })
   }
-  
+
   render() {
     return (
       <div className="App">
         <h1>Welcome to the Music App</h1>
-        {this.state.user ? <div><AlbumsContainer /></div> : <LoginForm handleLogin={this.handleLogin}/>}
+        {this.state.user ? <div><SearchBar/></div> : <LoginForm handleLogin={this.handleLogin}/>}
       </div>
     );
   }
