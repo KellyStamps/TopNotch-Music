@@ -1,4 +1,5 @@
-import {API_KEY, LAST_FM_ROOT} from '../constants'
+import {LAST_FM_ROOT} from '../constants'
+import {API_KEY} from '../keys'
 
 class SearchAdapter {
 
