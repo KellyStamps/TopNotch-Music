@@ -1,5 +1,7 @@
 import React from 'react'
 import SearchAdapter from '../api/SearchAdapter'
+import {connect} from 'react-redux'
+import {addAlbums} from '../actions/albums'
 
 class SearchBar extends React.Component{
 
@@ -9,9 +11,13 @@ class SearchBar extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault()
-    let returned = SearchAdapter.fetchAlbums(this.state.searchTerm)
-    console.log(returned)
+
+    SearchAdapter.fetchAlbums(this.state.searchTerm)
+    .then(json => this.props.addAlbums(json.topalbums.album))
+
+    // console.log(returned)
   }
+
 
   handleChange = (event) => {
     this.setState({searchTerm: event.target.value})
@@ -27,4 +33,4 @@ class SearchBar extends React.Component{
 
 }
 
-export default SearchBar
+export default connect(null, {addAlbums})(SearchBar)
