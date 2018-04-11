@@ -1,29 +1,29 @@
 # auth-app
 Log in, search for an artist, and look through their albums.
 
-#Motivation
+# Motivation
 Project exploring authentication with JWT and displaying data from the last.fm API.
 
-#Demo
+# Demo
 Coming soon.
 
-#Features
+# Features
 JWT auth, state management with Redux, fetch.
 
-#Installation
+# Installation
 Please visit individual repos for installation instructions.
 
-#Contributing
+# Contributing
 Fork it!
 Create your feature branch: git checkout -b my-new-feature
 Commit your changes: git commit -am 'Add some feature'
 Push to the branch: git push origin my-new-feature
 Submit a pull request
 
-#Credits
+# Credits
 Lead Developers: Kelly Sample (@KellyStamps). Special thanks to Yamuna Navada.
 
-License The MIT License (MIT)
+# License The MIT License (MIT)
 
 Copyright (c) 2018 Kelly Sample 
 
