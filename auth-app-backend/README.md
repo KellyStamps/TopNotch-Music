@@ -1,4 +1,4 @@
-# auth app
+# Music App
 This repo contains the back end of the app only. Be sure to visit this repo for the front end: https://github.com/KellyStamps/auth-app/auth-app-frontend.
 
 # Demo
