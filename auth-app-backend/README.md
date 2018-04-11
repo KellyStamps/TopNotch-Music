@@ -2,7 +2,8 @@
 This repo contains the back end of the app only. Be sure to visit this repo for the front end: https://github.com/KellyStamps/auth-app/auth-app-frontend.
 
 # Demo
-Coming soon.
+<a href="https://youtu.be/hJ1u4v2q6Ug" target="_blank"><img src="http://img.youtube.com/vi/hJ1u4v2q6Ug/0.jpg" 
+alt="Music App Thumbnail" width="240" height="180" border="10" /></a>
 
 # Installation
 1. Clone down to your computer
