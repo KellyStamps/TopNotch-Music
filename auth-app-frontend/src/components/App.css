@@ -16,15 +16,45 @@ html, body {
   font-family: "Barrio";
 }
 
+#navbar li {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+}
+
+#navbar li:hover {
+  background-color: white;
+  border-radius: 25px;
+}
+
+#searchbar input {
+  padding: 5px;
+  width: 30%;
+  border-radius: 10px;
+  font-family: 'Abel';
+  font-size: 15px;
+}
+
 #smaller-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
 
+#albums-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .album-card {
-  border: 1px black solid;
+  /* border: 1px black solid; */
   grid-column: 1fr;
-  padding: 10px;
-  background-color: white;
-  margin: 10px;
+  padding: 20px 20px 40px 20px;
+  /* background-color: white; */
+  margin: 20px auto 20px auto;
+  width: 60%;
+  border-radius: 25px;
+}
+
+.album-card img {
+  box-shadow: 10px 15px 15px black;
 }

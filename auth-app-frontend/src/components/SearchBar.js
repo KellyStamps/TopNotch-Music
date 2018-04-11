@@ -11,11 +11,8 @@ class SearchBar extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault()
-
     SearchAdapter.fetchAlbums(this.state.searchTerm)
     .then(json => this.props.addAlbums(json.topalbums.album))
-
-    // console.log(returned)
   }
 
 
@@ -25,8 +22,8 @@ class SearchBar extends React.Component{
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.searchTerm} onChange={this.handleChange} placeholder="Artist Name"/>
+      <form id='searchbar' onSubmit={this.handleSubmit}>
+        <input type="text" value={this.state.searchTerm} onChange={this.handleChange} placeholder="Enter Artist Name"/>
       </form>
     )
   }

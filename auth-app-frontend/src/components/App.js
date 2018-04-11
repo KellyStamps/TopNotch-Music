@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import NavBar from './NavBar'
 import LoginForm from './LoginForm';
 import AlbumsContainer from './AlbumsContainer';
 import SearchBar from './SearchBar'
 import AuthAdapter from '../api/AuthAdapter'
 import {connect} from 'react-redux'
 import {addUser} from '../actions/users'
+import {addAlbums} from '../actions/albums'
 
 class App extends Component {
 
@@ -35,19 +37,21 @@ class App extends Component {
       })
   }
 
+  //this.props.history.push('/url')
+
   render() {
-    console.log(this.props.user)
     return (
       <div className="App">
+        <NavBar/>
         <h1>Welcome to the Music App</h1>
-        {this.state.user ? <div><SearchBar/></div> : <LoginForm handleLogin={this.handleLogin}/>}
+        {this.state.user ? <div><SearchBar/><AlbumsContainer/></div> : <LoginForm handleLogin={this.handleLogin}/>}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return {...state.user}
+  return {user: {...state.user}, ...state.albums}
 }
 
-export default connect(mapStateToProps, {addUser})(App);
+export default connect(mapStateToProps, {addUser, addAlbums})(App);
