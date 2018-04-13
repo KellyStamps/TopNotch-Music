@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Switch, Route, withRouter, Redirect} from 'react-router-dom'
 import './App.css';
 import NavBar from './NavBar'
 import LoginForm from './LoginForm';
@@ -37,14 +38,28 @@ class App extends Component {
       })
   }
 
+  handleLogOut = (event) => {
+    localStorage.removeItem('jwt')
+    this.setState({user: false})
+  }
+
   //this.props.history.push('/url')
 
   render() {
     return (
       <div className="App">
-        <NavBar/>
-        <h1>Welcome to the Music App</h1>
-        {this.state.user ? <div><SearchBar/><AlbumsContainer/></div> : <LoginForm handleLogin={this.handleLogin}/>}
+        <NavBar handleLogOut={this.handleLogOut}/>
+        <h1>Welcome to TopNotch Music</h1>
+        <Switch>
+          <Route exact path='/login'
+            render={props => {
+              return <LoginForm handleLogin={this.handleLogin} user={this.state.user}/>
+            }} />
+          <Route exact path='/search' render={props => {
+              return <div><SearchBar user={this.state.user}/> <AlbumsContainer/></div>
+            }}/>
+        </Switch>
+
       </div>
     );
   }
@@ -54,4 +69,4 @@ const mapStateToProps = (state) => {
   return {user: {...state.user}, ...state.albums}
 }
 
-export default connect(mapStateToProps, {addUser, addAlbums})(App);
+export default withRouter(connect(mapStateToProps, {addUser, addAlbums})(App));

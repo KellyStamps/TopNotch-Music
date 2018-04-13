@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
 import App from './components/App';
 import {createStore, combineReducers} from 'redux';
 import userReducer from './reducers/userReducer';
@@ -16,7 +17,9 @@ const store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App store={store}/>
+    <BrowserRouter>
+      <App store={store}/>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

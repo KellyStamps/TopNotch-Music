@@ -1,11 +1,11 @@
 import React from 'react'
 
-const NavBar = () => {
+const NavBar = ({handleLogOut}) => {
   return (
     <ul id='navbar'>
       <li>My Favorites</li>
-      <li>Search Albums</li>
-      <li>Log Out</li>
+      <li><a href='/search'>Search Albums</a></li>
+      <li onClick={handleLogOut}><a href='#'>Log Out</a></li>
     </ul>
   )
 }

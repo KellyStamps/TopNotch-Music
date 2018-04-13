@@ -1,4 +1,5 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import SearchAdapter from '../api/SearchAdapter'
 import {connect} from 'react-redux'
 import {addAlbums} from '../actions/albums'
@@ -23,20 +24,25 @@ class SearchBar extends React.Component{
     })
   }
 
-
   handleChange = (event) => {
     this.setState({searchTerm: event.target.value})
   }
 
   render(){
-    return(
-      <div>
-        <form id='searchbar' onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.searchTerm} onChange={this.handleChange} placeholder="Enter Artist Name"/>
-        </form>
-        {this.state.noResult ? <h3>Sorry, no albums found.</h3> : null}
-      </div>
-    )
+    if (this.props.user) {
+      return(
+        <div>
+          <form className='form' onSubmit={this.handleSubmit}>
+            <input type="text" value={this.state.searchTerm} onChange={this.handleChange} placeholder="Enter Artist Name"/>
+          </form>
+          {this.state.noResult ? <h3>Sorry, no albums found.</h3> : null}
+        </div>
+      )
+    } else {
+      return (
+        <Redirect to='/login'/>
+      )
+    }
   }
 
 }
