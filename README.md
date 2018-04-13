@@ -1,4 +1,4 @@
-# Music App
+# TopNotch Music
 Log in, search for an artist, and look through their albums.
 
 # Motivation
@@ -6,7 +6,7 @@ Project exploring authentication with JWT and displaying data from the last.fm A
 
 # Demo
 <a href="https://youtu.be/hJ1u4v2q6Ug" target="_blank"><img src="http://img.youtube.com/vi/hJ1u4v2q6Ug/0.jpg" 
-alt="Music App Thumbnail" width="240" height="180" border="10" /></a>
+alt="TopNotch Music Thumbnail" width="240" height="180" border="10" /></a>
 
 # Features
 JWT auth, state management with Redux, fetch.
