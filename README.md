@@ -1,21 +1,18 @@
 # TopNotch Music
-This repo contains the back end of the app only. Be sure to visit this repo for the front end: https://github.com/KellyStamps/auth-app/auth-app-frontend.
+Log in, search for an artist, and look through their albums.
+
+# Motivation
+Project exploring authentication with JWT and displaying data from the last.fm API.
 
 # Demo
 <a href="https://youtu.be/hJ1u4v2q6Ug" target="_blank"><img src="http://img.youtube.com/vi/hJ1u4v2q6Ug/0.jpg" 
 alt="TopNotch Music Thumbnail" width="240" height="180" border="10" /></a>
 
-# Installation
-1. Clone down to your computer
-2. CD into project folder on your computer from your terminal
-3. Enter "bundle install" in your terminal
-4. After installation is complete, enter "rake db:create" to create your PostgreSQL database
-5. Next enter "rake db:migrate" to create tables in your database
-6. Enter "rake db:seed" to add challenges and users to your database (feel free to delete or add users as you like in the seed file)
-7. Finally, enter "rails s" to start the server
+# Features
+JWT auth, state management with Redux, fetch.
 
-# Instructions
-After installing this app, log in with a name and a password. Upon log in you will have access to the full site and can search for artists and view their albums.
+# Installation
+Please visit individual repos for installation instructions.
 
 # Contributing
 Fork it!
@@ -25,7 +22,7 @@ Push to the branch: git push origin my-new-feature
 Submit a pull request
 
 # Credits
-Lead Developer: Kelly Sample (@KellyStamps). Special thanks to Yamuna Navada.
+Lead Developers: Kelly Sample (@KellyStamps). Special thanks to Yamuna Navada.
 
 # License The MIT License (MIT)
 
