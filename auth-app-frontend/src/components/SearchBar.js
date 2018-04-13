@@ -6,13 +6,21 @@ import {addAlbums} from '../actions/albums'
 class SearchBar extends React.Component{
 
   state = {
-    searchTerm: ''
+    searchTerm: '',
+    noResult: false
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
     SearchAdapter.fetchAlbums(this.state.searchTerm)
-    .then(json => this.props.addAlbums(json.topalbums.album))
+    .then(json => {
+      if (json.error) {
+        this.setState({noResult: true})
+      } else {
+        this.setState({noResult: false})
+        this.props.addAlbums(json.topalbums.album)
+      }
+    })
   }
 
 
@@ -22,9 +30,12 @@ class SearchBar extends React.Component{
 
   render(){
     return(
-      <form id='searchbar' onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.searchTerm} onChange={this.handleChange} placeholder="Enter Artist Name"/>
-      </form>
+      <div>
+        <form id='searchbar' onSubmit={this.handleSubmit}>
+          <input type="text" value={this.state.searchTerm} onChange={this.handleChange} placeholder="Enter Artist Name"/>
+        </form>
+        {this.state.noResult ? <h3>Sorry, no albums found.</h3> : null}
+      </div>
     )
   }
 

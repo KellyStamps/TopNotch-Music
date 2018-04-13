@@ -5,7 +5,6 @@ class SearchAdapter {
 
   static fetchAlbums(searchTerm){
     let artist = searchTerm.toLowerCase()
-    let answer = []
     const ALBUMS=`?method=artist.gettopalbums&artist=${artist}&api_key=${API_KEY}&format=json`
 
     return fetch(`${LAST_FM_ROOT}${ALBUMS}`)
