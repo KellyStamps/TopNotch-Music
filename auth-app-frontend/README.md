@@ -1,11 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-# Music App
+# TopNotch Music
 This repo contains the front end of the app only. Be sure to visit this repo for the back end: https://github.com/KellyStamps/auth-app/auth-app-backend.
 
 # Demo
 <a href="https://youtu.be/hJ1u4v2q6Ug" target="_blank"><img src="http://img.youtube.com/vi/hJ1u4v2q6Ug/0.jpg" 
-alt="Music App Thumbnail" width="240" height="180" border="10" /></a>
+alt="TopNotch Music Thumbnail" width="240" height="180" border="10" /></a>
 
 # Installation
 1. Clone down to your computer.
