@@ -5,7 +5,7 @@ Log in, search for an artist, and look through their albums.
 Project exploring authentication with JWT and displaying data from the last.fm API.
 
 # Demo
-<a href="https://youtu.be/hJ1u4v2q6Ug" target="_blank"><img src="http://img.youtube.com/vi/hJ1u4v2q6Ug/0.jpg" 
+<a href="https://youtu.be/A1Jgbm9Jl9E" target="_blank"><img src="http://img.youtube.com/vi/A1Jgbm9Jl9E/0.jpg" 
 alt="TopNotch Music Thumbnail" width="240" height="180" border="10" /></a>
 
 # Features
