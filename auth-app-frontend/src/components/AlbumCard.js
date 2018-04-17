@@ -1,13 +1,29 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {selectedAlbum} from '../actions/albums'
 
-const AlbumCard =(album)=> {
-  console.log(album)
-  return (
-    <div className='album-card'>
-      <h2>{album.album.name}</h2>
-      <img src={album.album.image[3]['#text']}/>
-    </div>
-  )
+class AlbumCard extends React.Component {
+
+  cleanedName = () => {
+    return this.props.album.name.replace(/\s/g, "")
+  }
+
+  handleClick = () => {
+    this.props.selectedAlbum(this.props.album)
+  }
+
+  render(){
+    return (
+      <div className='album-card'>
+        <Link to={`/albums/${this.cleanedName()}`}>
+          <h2 onClick={this.handleClick}>{this.props.album.name}</h2>
+        </Link>
+        <img alt="album cover" src={this.props.album.image[3]['#text']}/>
+      </div>
+    )
+  }
+
 }
 
-export default AlbumCard
+export default connect(null,{selectedAlbum})(AlbumCard)
