@@ -5,6 +5,11 @@ class SearchAdapter {
 
   static fetchAlbums(searchTerm){
     let artist = searchTerm.toLowerCase()
+
+    if (artist[artist.length-1] === " "){
+      artist = artist.slice(0, -1)
+    }
+
     const ALBUMS=`?method=artist.gettopalbums&artist=${artist}&api_key=${API_KEY}&format=json`
 
     return fetch(`${LAST_FM_ROOT}${ALBUMS}`)

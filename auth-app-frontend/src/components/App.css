@@ -81,3 +81,32 @@ html, body {
 #pages .break a {
     cursor: default;
 }
+
+#album-show-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#album-show-container img {
+  grid-column: 1/2;
+  margin: 10px auto auto auto;
+  padding: 15px;
+}
+
+.fave-button {
+  grid-column: 1/2;
+  margin: auto;
+  border-radius: 15px;
+  font-family: 'Abel';
+  margin-top: 10px;
+  padding: 10px;
+  color: white;
+  background-color: darkorange;
+  border: none;
+  box-shadow: 3px 3px 3px black;
+  font-size: 13px;
+}
+
+#album-show-header {
+  grid-column: 1/2;
+}
