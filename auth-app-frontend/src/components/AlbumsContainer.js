@@ -1,17 +1,42 @@
 import React from 'react'
 import AlbumCard from './AlbumCard'
 import {connect} from 'react-redux'
+import ReactPaginate from 'react-paginate'
 
 class AlbumsContainer extends React.Component {
 
-  handleClick = (album) => {
-    debugger
+  state = {
+    limit: 10,
+    offset: 0
+  }
+
+  renderHelper = () => {
+    if (this.props.albums !== null) {
+
+      let shownAlbums = this.props.albums.slice(this.state.offset, (this.state.offset + this.state.limit));
+
+      return shownAlbums.map(alb => <AlbumCard key={alb.name} album={alb}/>)
+    }
+  }
+
+  handlePageChange = (arg) => {
+    this.setState({offset: arg.selected * this.state.limit})
   }
 
   render(){
     return (
       <div id='albums-container'>
-        {this.props.albums === null ? null : this.props.albums.map(alb => <AlbumCard key={alb.name} album={alb} handleClick={this.handleClick}/>)}
+        {this.renderHelper()}
+        <div id='pages'>
+          <ReactPaginate
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            pageCount={this.props.pageCount}
+            pageRangeDisplayed={2}
+            pageMarginDisplayed={5}
+            onPageChange={this.handlePageChange}
+            />
+        </div>
       </div>
     )
   }
