@@ -12,7 +12,7 @@ const LoginForm = ({handleLogin, user}) => {
         <form className='form' onSubmit={handleLogin}>
           <p><input type="text" placeholder="Username" id="username"/></p>
           <p><input type="password" placeholder="Password" id="password"/></p>
-          <p><input type="submit" value="Log In"/></p>
+          <p><input className='button' type="submit" value="Log In"/></p>
         </form>
       </div>
     )

@@ -95,6 +95,9 @@ html, body {
 
 .fave-button {
   grid-column: 1/2;
+}
+
+.button {
   margin: auto;
   border-radius: 15px;
   font-family: 'Abel';
