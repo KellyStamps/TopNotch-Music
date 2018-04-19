@@ -95,6 +95,7 @@ html, body {
 
 .fave-button {
   grid-column: 1/2;
+  /* made change */
 }
 
 .button {
