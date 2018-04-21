@@ -4,7 +4,8 @@ class Api::V1::AuthController < ApplicationController
   def show
     render json: {
       id: find_current_user.id,
-      username: find_current_user.username
+      username: find_current_user.username,
+      favorites: find_current_user.favorites
     }
   end
 

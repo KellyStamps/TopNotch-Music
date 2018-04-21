@@ -4,3 +4,10 @@ export const addUser = (user) => {
     user: user
   }
 }
+
+export const addFave = (fave) => {
+  return {
+    type: 'ADD_FAVE',
+    fave: fave
+  }
+}
