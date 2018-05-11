@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './NavBar'
 import LoginForm from './LoginForm';
 import AlbumsContainer from './AlbumsContainer';
+import FavoritesContainer from './FavoritesContainer';
 import SearchBar from './SearchBar'
 import SingleAlbumContainer from './SingleAlbumContainer'
 import AuthAdapter from '../api/AuthAdapter'
@@ -63,6 +64,7 @@ class App extends Component {
               return <div><SearchBar user={this.state.user}/> <AlbumsContainer/></div>
             }}/>
           <Route exact path='/albums/:name' component={SingleAlbumContainer}/>
+          <Route exact path='/favorites' component={FavoritesContainer}/>
         </Switch>
 
       </div>
@@ -71,7 +73,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {user: {...state.user}, ...state.albums}
+  return {user: {...state.users.user}, ...state.albums}
 }
 
 export default withRouter(connect(mapStateToProps, {addUser, addAlbums})(App));

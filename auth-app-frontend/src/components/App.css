@@ -113,3 +113,17 @@ html, body {
 #album-show-header {
   grid-column: 1/2;
 }
+
+#favorites-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+#favorites-container h1 {
+  grid-column: 1/4;
+}
+
+.favorite-card {
+  border: 2px black solid;
+}
