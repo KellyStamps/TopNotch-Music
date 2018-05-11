@@ -7,7 +7,7 @@ class FavoritesContainer extends React.Component {
     if(this.props.user) {
       return (
         <div id="favorites-container">
-        <h1>My Favorites</h1>
+        <h2>My Favorites</h2>
         {this.props.user.favorites.map(fave => <FavoriteCard fave={fave}/>)}
        </div>
       )

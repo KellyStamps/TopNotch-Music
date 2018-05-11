@@ -79,7 +79,7 @@ html, body {
 }
 
 #pages .break a {
-    cursor: default;
+  cursor: default;
 }
 
 #album-show-container {
@@ -120,10 +120,20 @@ html, body {
   grid-gap: 20px;
 }
 
-#favorites-container h1 {
+#favorites-container h2 {
   grid-column: 1/4;
 }
 
 .favorite-card {
-  border: 2px black solid;
+  /* border: 2px black solid; */
+  margin: 30px 30px 50px 30px;
+}
+
+.favorite-card h4 {
+  font-size: 24px;
+  margin: 0px;
+}
+
+.favorite-card img {
+  box-shadow: 5px 5px 5px black;
 }
